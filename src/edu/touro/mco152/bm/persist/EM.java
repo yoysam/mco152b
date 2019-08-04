@@ -10,10 +10,15 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- *
+ * EM - Entity Manager Singleton providing access to an instance
+ * of the Java Persistence EntityManager class. For use in persisting info about
+ * new benchmark runs, and reading
+ * information about previous benchmark runs.
+ * 
  * @author James
+ * 
  */
-public class EM {
+public class EM {   //TODO  Come up with a better name (besides EntityManager  :-)  
     
     private static EntityManager em = null;
     
