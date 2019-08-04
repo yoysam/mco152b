@@ -29,8 +29,9 @@ import javax.persistence.TemporalType;
     query="SELECT d FROM DiskRun d")
 })
 public class DiskRun implements Serializable {
-    
-    static final DecimalFormat DF = new DecimalFormat("###.##");
+
+	private static final long serialVersionUID = 1L;
+	static final DecimalFormat DF = new DecimalFormat("###.##");
     static final DateFormat DATE_FORMAT = new SimpleDateFormat("EEE, MMM d HH:mm:ss");
     
     static public enum IOMode { READ, WRITE, READ_WRITE; }

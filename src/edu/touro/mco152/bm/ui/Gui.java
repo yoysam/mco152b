@@ -72,6 +72,8 @@ public final class Gui {
         chartPanel = new ChartPanel(chart) {
             // Only way to set the size of chart panel
             // ref: http://www.jfree.org/phpBB2/viewtopic.php?p=75516
+            private static final long serialVersionUID = 1L;
+
             @Override
             public Dimension getPreferredSize() {
                 return new Dimension(500, 325);
