@@ -4,7 +4,8 @@ It is not (yet) particularly object oriented, nor is it (yet) particularly exten
  
 == Usage ==
 
-1. Requires java 8.
+1. Requires java 8. If using JDK 10 or newer, obtain EclipseLink version 2.7.3 jar, place it in lib directory (rename to eclipselink.jar)
+
 2. to run outside of IDE:
    Unix         $ java -jar jDiskMark.jar
    On windows double click executable jar file.
