@@ -1,7 +1,16 @@
+# eclipse items
 .project
 .settings
 .classpath
+
+# build artifacts
+build
 bin/
+
+# program execution artifacts
 jDiskMarkData/
 doc/
+
+#MAC junk
+.DS_Store
 
