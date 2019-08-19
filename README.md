@@ -11,9 +11,12 @@ It is not (yet) particularly object oriented, nor is it (yet) particularly exten
    On windows double click executable jar file.
 
 
+Note that the jdm.properties file gets updated when the program is executed, the locationDir property gets set to the users home directory if not set already. If it is set and its wrong, execution of a benchmark will fail.
+
+
 For MCO152 class, this repo's master branch is updated to this level:
 
 
-level 1 - Cleaned up some warnings and added sample Javadoc (branches cleanWarings, docExamples)
+level 1 - Cleaned up some warnings and added sample Javadoc (branches cleanWarings, docExamples), added meaningful gitignore.
 
 level 0 - taken from jamesmarkchan repo at V0.4
