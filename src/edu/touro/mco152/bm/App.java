@@ -1,6 +1,6 @@
-
+//this is a nice package
 package edu.touro.mco152.bm;
-
+// the main class
 import java.beans.PropertyChangeEvent;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,6 +26,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 /**
  * Primary class for global variables.
  */
+// make sure to use this to run the program
 public class App {
     
     public static final String APP_CACHE_DIR = System.getProperty("user.home") + File.separator + ".jDiskMark";
@@ -67,6 +68,7 @@ public class App {
     /**
      * @param args the command line arguments
      */
+    // the main method
     public static void main(String args[]) {
         
         /* Set the Nimbus look and feel */
