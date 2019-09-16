@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 /**
  *
  */
+// usefull for marking the disl
 public class DiskMark {
     
     static DecimalFormat df = new DecimalFormat("###.###");
@@ -24,6 +25,7 @@ public class DiskMark {
     private double cumAvg = 0;
     
     @Override
+	// making a string 
     public String toString() {
         return "Mark("+type+"): "+getMarkNum()+" bwMbSec: "+getBwMbSecAsString()+" avg: "+getAvgAsString();
     }
@@ -39,7 +41,7 @@ public class DiskMark {
     String getMaxAsString() {
         return df.format(getCumMax());
     }
-    
+    //getting the min as a string 
     String getAvgAsString() {
         return df.format(getCumAvg());
     }
