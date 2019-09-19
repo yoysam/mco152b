@@ -32,6 +32,9 @@ import edu.touro.mco152.bm.ui.Gui;
  * Thread running the disk benchmarking. only one of these threads can run at
  * once.
  */
+/**
+* this class needs to be refactored
+*/
 public class DiskWorker extends SwingWorker <Boolean, DiskMark> {
     
     @Override
