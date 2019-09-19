@@ -27,6 +27,9 @@ import javax.swing.UnsupportedLookAndFeelException;
  * Primary class for global variables.
  */
 // make sure to use this to run the program
+/**
+this is the main class of the entire program
+*/
 public class App {
     
     public static final String APP_CACHE_DIR = System.getProperty("user.home") + File.separator + ".jDiskMark";
@@ -200,7 +203,9 @@ public class App {
             Logger.getLogger(SelectFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    /**
+    build the string for the configurtion
+    */
     public static String getConfigString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Config for Java Disk Mark ").append(getVersion()).append('\n');
@@ -217,7 +222,9 @@ public class App {
         sb.append("blockSizeKb: ").append(blockSizeKb).append('\n');
         return sb.toString();
     }
-    
+    /**
+    method for loading runs saved on the disk
+    */
     public static void loadSavedRuns() {
         Gui.runPanel.clearTable();
         
