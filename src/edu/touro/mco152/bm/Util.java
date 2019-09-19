@@ -17,6 +17,9 @@ import javax.swing.filechooser.FileSystemView;
 /**
  * Utility methods for jDiskMark
  */
+/**
+ * many of the methods ar not used
+*/
 public class Util {
     
     static final DecimalFormat DF = new DecimalFormat("###.##");
@@ -77,6 +80,10 @@ public class Util {
     /*
      * Not used kept here for reference.
      */
+    /**
+    * getting the stats from the system.
+    */
+    
     public static void sysStats() {
         /* Total number of processors or cores available to the JVM */
         System.out.println("Available processors (cores): " + 
