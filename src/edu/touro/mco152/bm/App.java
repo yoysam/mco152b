@@ -28,7 +28,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 // make sure to use this to run the program
 /**
-this is the main class of the entire program
+* this is the main class of the entire program
 */
 public class App {
     
@@ -204,7 +204,7 @@ public class App {
         }
     }
     /**
-    build the string for the configurtion
+    * build the string for the configurtion
     */
     public static String getConfigString() {
         StringBuilder sb = new StringBuilder();
@@ -223,7 +223,7 @@ public class App {
         return sb.toString();
     }
     /**
-    method for loading runs saved on the disk
+   * method for loading runs saved on the disk
     */
     public static void loadSavedRuns() {
         Gui.runPanel.clearTable();
