@@ -176,7 +176,7 @@ public class App {
         value = p.getProperty("writeSyncEnable", String.valueOf(writeSyncEnable));
         writeSyncEnable = Boolean.valueOf(value);
     }
-    configure file saving
+    // configure file saving
     public static void saveConfig() {
         p.setProperty("locationDir", App.locationDir.getAbsolutePath());
         p.setProperty("multiFile", String.valueOf(multiFile));

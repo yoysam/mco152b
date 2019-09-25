@@ -13,7 +13,7 @@ public class DiskMark {
     
     public enum MarkType { READ,WRITE; }
     
-    DiskMark(MarkType type) {
+    public DiskMark(MarkType type) {
         this.type=type;
     }
     
