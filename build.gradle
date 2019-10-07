@@ -27,9 +27,9 @@ dependencies {
    testImplementation('org.junit.jupiter:junit-jupiter:5.5.2')
 }
 application {
-   // Define the main class for the application
-   mainClassName = 'App'
-}
+
+}  // Define the main class for the application
+mainClassName = 'App'
 jar {
    manifest {
        attributes 'Main-Class': 'edu.touro.mco152.bm.App'
