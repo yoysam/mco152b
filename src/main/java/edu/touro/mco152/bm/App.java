@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingWorker.StateValue;
@@ -32,6 +33,7 @@ public class App {
     public static final String APP_CACHE_DIR = System.getProperty("user.home") + File.separator + ".jDiskMark";
     public static final String PROPERTIESFILE = "jdm.properties";
     public static final String DATADIRNAME = "jDiskMarkData";
+    public static boolean gui=true;
     public static final int MEGABYTE = 1024 * 1024;
     public static final int KILOBYTE = 1024;
     public static final int IDLE_STATE = 0;
@@ -61,10 +63,13 @@ public class App {
     public static int blockSizeKb = 512;    // size of a block in KBs
     
     public static DiskWorker worker = null;
+    public static cmdbenchmark worker2=null;
     public static int nextMarkNumber = 1;   // number of the next mark
     public static double wMax = -1, wMin = -1, wAvg = -1;
     public static double rMax = -1, rMin = -1, rAvg = -1;
-    
+
+
+    public static Scanner keyboard= new Scanner(System.in);
     /**
      * @param args the command line arguments
      */
@@ -91,9 +96,23 @@ public class App {
             }
             //</editor-fold>
         }
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(App::init);
-    }
+        boolean right=false;
+        while (!right) {
+            System.out.println("Do you want to use the cmd or gui");
+            String choice = keyboard.nextLine();
+            if (choice.equalsIgnoreCase("cmd")){
+                gui=false;
+                right=true;
+                java.awt.EventQueue.invokeLater(App::useCmd);
+                }
+            else if (choice.equalsIgnoreCase("gui")){
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(App::init);
+              right=true;}
+            else
+                System.out.println("please enter cmd or gui");
+
+        }  }
     
     /**
      * Get the version from the build properties. Defaults to 0.0 if not found.
@@ -138,6 +157,18 @@ public class App {
             public void run() { App.saveConfig(); }
         });
     }
+    /**
+     * works the cmd
+     */
+    public static void useCmd(){
+        boolean vaild=true;
+         p=new Properties();
+        do{
+      String want= cmd.wantDefult(keyboard);
+      if (want.equalsIgnoreCase("y"))
+          loadConfig();
+          startBenchmark();
+    } while (!vaild);}
     // configure file loading
     public static void loadConfig() {
         File pFile = new File(PROPERTIESFILE);
@@ -251,19 +282,26 @@ public class App {
         //1. check that there isn't already a worker in progress
         if (state == State.DISK_TEST_STATE) {
             //if (!worker.isCancelled() && !worker.isDone()) {
+            if (gui)
                 msg("Test in progress, aborting...");
+            else
+                System.out.println("Test in progress, aborting...");
                 return;
             //}
         }
         
         //2. check can write to location
         if (locationDir.canWrite() == false) {
+            if (gui)
             msg("Selected directory can not be written to... aborting");
+            else
+                System.out.println("Selected directory can not be written to... aborting");
             return;
         }
         
         //3. update state
         state = State.DISK_TEST_STATE;
+        if (gui)
         Gui.mainFrame.adjustSensitivity();
         
         //4. create data dir reference
@@ -282,6 +320,7 @@ public class App {
         if (dataDir.exists() == false) { dataDir.mkdirs(); }
         
         //7. start disk worker thread
+        if (gui){
         worker = new DiskWorker();
         worker.addPropertyChangeListener((final PropertyChangeEvent event) -> {
             switch (event.getPropertyName()) {
@@ -303,6 +342,12 @@ public class App {
             }
         });
         worker.execute();
+    }
+    else{
+            worker2 = new cmdbenchmark();
+
+            worker2.execute();
+        }
     }
     
     public static long targetMarkSizeKb() {

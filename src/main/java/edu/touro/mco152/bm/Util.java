@@ -57,7 +57,7 @@ public class Util {
 
         // nextInt is normally exclusive of the top value,
         // so add 1 to make it inclusive
-        int randomNum = rand.nextInt((max - min) + 1) + min;
+        int randomNum = rand.nextInt((max - min) ) + min;
 
         return randomNum;
     }
@@ -242,7 +242,7 @@ public class Util {
     public static String getModelFromLetter2(String driveLetter) {
         try {
             Process p = Runtime.getRuntime().exec("powershell -ExecutionPolicy ByPass -File disk-model.ps1");
-            p.waitFor();
+         p.waitFor();
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line = reader.readLine();
 
